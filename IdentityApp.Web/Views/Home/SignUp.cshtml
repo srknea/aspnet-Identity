@@ -7,7 +7,16 @@
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <h2>Kullanıcı Kayıt Formu</h2>
-        <form>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-info" role="alert">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <form asp-controller="Home" asp-action="SignUp" method="Post">
+
             <div class="row mb-3">
                 <label for="UserName" class="col-md-4 col-form-label" asp-for="UserName"></label>
                 <div class="col-md-8">
@@ -43,15 +52,11 @@
                 </div>
             </div>
 
-
             <div class="row mb-3">
-
                 <div class="col-md-8 offset-md-4">
                     <button type="submit" class="btn btn-primary">Kayıt Ol</button>
                 </div>
             </div>
-
-
 
         </form>
     </div>
